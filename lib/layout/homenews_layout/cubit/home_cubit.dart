@@ -127,4 +127,30 @@ class HomeCubit extends Cubit<HomeStates> {
     }
     // isDark = false;
   }
+
+  //==================search====================
+  final TextEditingController seachController = TextEditingController();
+  final GlobalKey searchFormKey = GlobalKey<FormState>();
+  List<ArticlesModel> searchList = [];
+  void getSearch(String searchWord) {
+    emit(SearchLoadingState());
+    searchList = [];
+    DioHelper.get(url: searchurlMethod, qurey: {
+      'q': searchWord.toString(),
+      'from': '2023-02-27',
+      'sortBy': 'publishedAt',
+      'apiKey': apiKey,
+    }).then((value) {
+      // print(value);
+      seachController.clear();
+      List l = value.data['articles'] as List;
+      l.forEach((element) {
+        searchList.add(ArticlesModel.fromJson(element));
+      });
+      emit(SearchGetDataState());
+    }).catchError((err) {
+      debugPrint('errrrror $err');
+      emit(SearchErrorDataState(err.toString()));
+    });
+  }
 }
