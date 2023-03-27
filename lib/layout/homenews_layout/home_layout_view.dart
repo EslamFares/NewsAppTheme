@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_api/layout/homenews_layout/cubit/home_cubit.dart';
 import 'package:news_api/layout/homenews_layout/cubit/home_states.dart';
 import 'package:news_api/modules/settings/settings_view.dart';
+import '../../modules/search/serach_view.dart';
 import '../../shared/componant/navigate/navigate.dart';
 import '../../shared/network/dio_helper.dart';
 
@@ -20,7 +21,9 @@ class HomeLayoutView extends StatelessWidget {
             title: const Text('New App'),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  push(context, const SearchView());
+                },
                 icon: const Icon(
                   Icons.search,
                 ),

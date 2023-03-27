@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 class NewsImg extends StatelessWidget {
   final String? imgUrl;
-
-  const NewsImg(this.imgUrl, {super.key});
+  final double? width,height;
+  const NewsImg(this.imgUrl, {super.key,this.height,this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: width??100,
+      height: height??100,
       decoration: BoxDecoration(
           color: const Color(0x642195F3),
           borderRadius: BorderRadius.circular(15)),

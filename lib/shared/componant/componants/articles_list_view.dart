@@ -30,7 +30,8 @@ class ArticlesListView extends StatelessWidget {
                 : 'https://mostaql.hsoubcdn.com/uploads/thumbnails/1455379/62cc64a33ee9b/unnamed.jpg',
             title: list[index].title,
             des: list[index].author,
-            time: '  $date  $time  ',
+            time: time,
+            date: date,
           );
         },
         itemCount: list.length,

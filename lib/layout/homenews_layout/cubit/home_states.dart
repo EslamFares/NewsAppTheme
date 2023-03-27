@@ -30,5 +30,13 @@ class ScienceErrorDataState extends HomeStates {
   final String error;
   ScienceErrorDataState(this.error);
 }
+class SearchLoadingState extends HomeStates {}
+
+class SearchGetDataState extends HomeStates {}
+
+class SearchErrorDataState extends HomeStates {
+  final String error;
+  SearchErrorDataState(this.error);
+}
 class ChangeThemeState extends HomeStates {}
 class ChangeUseSystemThemeState extends HomeStates {}

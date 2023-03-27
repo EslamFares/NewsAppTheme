@@ -7,13 +7,14 @@ import '../../style/colors.dart';
 import 'news_img.dart';
 
 class ListItemView extends StatelessWidget {
-  final String url, title, des, time;
+  final String url, title, des, time, date;
   ListItemView({
     super.key,
     required this.url,
     required this.title,
     required this.des,
     required this.time,
+    required this.date,
   });
   final RegExp english = RegExp('[a-zA-Z0-9]', caseSensitive: false);
   final RegExp arabic = RegExp(r'[\u0750-\u077F]', caseSensitive: true);
@@ -48,10 +49,10 @@ class ListItemView extends StatelessWidget {
                         ? dSecColor
                         : lSecColor,
               ),
-              height: 100,
-              child: Row(
+              height: 250,
+              child: Column(
                 children: [
-                  NewsImg(url),
+                  NewsImg(url,width: double.infinity,height: 150,),
                   const SizedBox(width: 5),
                   Expanded(
                     child: Column(
@@ -73,8 +74,9 @@ class ListItemView extends StatelessWidget {
                               const TextStyle(color: Colors.grey, fontSize: 10),
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            Text(date),
                             Text(time),
                           ],
                         )
