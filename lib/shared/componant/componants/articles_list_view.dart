@@ -29,9 +29,10 @@ class ArticlesListView extends StatelessWidget {
                 ? list[index].urlToImage
                 : 'https://mostaql.hsoubcdn.com/uploads/thumbnails/1455379/62cc64a33ee9b/unnamed.jpg',
             title: list[index].title,
-            des: list[index].author,
+            des: list[index].author == 'null' ? "" : list[index].author,
             time: time,
             date: date,
+            urlweb: list[index].url,
           );
         },
         itemCount: list.length,

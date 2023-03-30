@@ -33,7 +33,7 @@ class SearchView extends StatelessWidget {
                           child: GlobalTextForm(
                             hintText: 'serach',
                             onchange: (val) {
-                              // cubit.getSearch(val);
+                              cubit.getSearch(val);
                             },
                             textController: cubit.seachController,
                             margin: const EdgeInsets.only(top: 0),

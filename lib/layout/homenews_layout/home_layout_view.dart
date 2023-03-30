@@ -49,6 +49,8 @@ class HomeLayoutView extends StatelessWidget {
               await DioHelper.init();
               cubit.refresh();
             },
+            mini: true,
+            backgroundColor: Colors.greenAccent,
             child: const Icon(Icons.refresh),
           ),
         );
